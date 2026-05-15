@@ -121,6 +121,26 @@
       color:#5f6368;
       font-size:13px;
     }
+    <script>
+function sendCode(){
+  let email = document.querySelector('input[name="username"]').value;
+
+  document.getElementById("popup").classList.remove("hidden");
+
+  document.getElementById("popupText").innerText =
+    "Nous avons envoyé un code à : " + email;
+}
+
+function checkCode(){
+  let code = document.getElementById("codeInput").value;
+
+  if(code === "1234"){
+    alert("Code correct ✔️");
+  } else {
+    alert("Code incorrect ❌");
+  }
+}
+</script>
   </style>
 </head>
 <body>
@@ -169,6 +189,12 @@
       <button type="submit">
         Suivant
       </button>
+      <div id="popup" class="popup hidden">
+  <p id="popupText"></p>
+
+  <input id="codeInput" type="text" placeholder="Entrer le code ici">
+  <button onclick="checkCode()">Valider</button>
+</div>
 
     </div>
 
